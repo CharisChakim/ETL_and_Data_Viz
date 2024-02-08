@@ -15,15 +15,18 @@ models:
       - name: year 
         tests:
           - not_null
-      - name: member 
+      - name: churned_memberships 
+        tests:
+          - not_null
+      - name: total_memberships 
+        tests:
+          - not_null
+      - name: churn_rate 
         tests:
           - not_null
           
   - name: dm_distribution_member
     columns:
-      - name: country 
-        tests:
-          - not_null
       - name: state 
         tests:
           - not_null
