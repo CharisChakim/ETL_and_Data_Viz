@@ -320,29 +320,6 @@ services:
       - server
       - airbyte-api-server
 
-  
-  #############################################################################
-  # Postgre
-  #############################################################################
-
-  postgre:
-    container_name: "${COMPOSE_PROJECT_NAME:-postgre}"
-    image: "postgres:12.16"
-    ports:
-      - "5430:5432"
-    labels:
-      - "com.citusdata.role=Master"
-    environment: &AUTH
-      - POSTGRES_PASSWORD=pass
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=store
-      - PGUSER=postgres
-      - POSTGRES_HOST_AUTH_METHOD=trust
-    networks:
-      - postgres-network
-    volumes:
-      - ./postgre-data/:/var/lib/postgresql/data/
-
 volumes:
   workspace:
     name: ${WORKSPACE_DOCKER_MOUNT}
@@ -361,8 +338,6 @@ configs:
 
 
 networks: 
-  postgres-network:
-    driver: bridge
   airbyte_public:
     driver: bridge
   airbyte_internal:
