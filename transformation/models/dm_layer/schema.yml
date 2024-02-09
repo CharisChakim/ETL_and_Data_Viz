@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: dm_growth_membership
+    columns:
+      - name: year
+        tests:
+          - not_null
+      - name: member
+        tests:
+          - not_null
+
+  - name: dm_churn_rate
+    columns:
+      - name: year 
+        tests:
+          - not_null
+      - name: churned_memberships 
+        tests:
+          - not_null
+      - name: total_memberships 
+        tests:
+          - not_null
+      - name: churn_rate 
+        tests:
+          - not_null
+          
+  - name: dm_distribution_member
+    columns:
+      - name: state 
+        tests:
+          - not_null
+      - name: key_account_manager
+        tests:
+          - not_null
+      - name: membership_plan
+        tests:
+          - not_null
+      - name: membership_count
+        tests:
+          - not_null
+
+
+  
