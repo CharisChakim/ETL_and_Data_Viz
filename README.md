@@ -55,5 +55,3 @@ Unleash your imagination and creativity to visualize data using Metabase.
 # 🧔 Author
 
 - Charis Chakim [![Github Badge](https://img.shields.io/badge/Github-black?logo=github)](https://github.com/CharisChakim)
-
-- Muhammad Rifa [![Github Badge](https://img.shields.io/badge/Github-black?logo=github)](https://github.com/rifa8)
