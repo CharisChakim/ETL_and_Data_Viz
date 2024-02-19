@@ -72,7 +72,7 @@ PT. XYZ specializes in providing video animation consultation services to its pr
 
 # 🏃 Run Locally
 
-**If you want to use airbyte to ingest data, use airbyte branch**
+**If you want to use airbyte to ingest data, use [airbyte branch](https://github.com/CharisChakim/Membership-Optimization-and-Business-Performance-Analysis-of-XYZ-Firm/tree/airbyte)**
 
 Clone the project
 ```
