@@ -1,59 +1,45 @@
-# XYZ Firm Project
-This repo is a demonstration of ELT process and data visualization.
+# 📌 In this airbyte branch
+- Using Airbyte by creating connections to extract and load data from local file to data warehouse
+- Using Airflow to trigger Arbyte to sync data with Airbyte connections
 
-# About The Project
+# 🏃 How to start
 
-PT. XYZ specializes in providing video animation consultation services to its predominantly international client base. They offer membership services and maintain comprehensive data on affiliate businesses and membership statuses. This analysis specifically targets multinational clients headquartered in the United States between 2019 and 2022.
+Set `LOCAL_ROOT` and `LOCAL_DOCKER_MOUNT` in [.env](airbyte/.env) file with path to `dataset/` directory in your local
 
-#  Objectives
-
-1. Ensure accurate tracking of PT. XYZ's membership growth and historical data annually from 2019 to 2022. 
-2. Calculate the churn rate to find out the annual number of memberships discontinuing their subscriptions to PT. XYZ.
-3. Converting and consolidating all payment transactions into revenue calculations in a single currency (USD).
-4. Visualize the distribution of memberships based on state, key account manager, and membership plan.
-
-# 🖥️ Tools and Tech
-
-<img alt="Python" src="https://img.shields.io/badge/Python-14354C.svg?logo=python&logoColor=white"></a>
-<img alt="Dbeaver" src="https://custom-icon-badges.demolab.com/badge/-Dbeaver-372923?logo=dbeaver-mono&logoColor=white"></a>
-<img alt="PostgreSQL" src ="https://img.shields.io/badge/PostgreSQL-316192.svg?logo=postgresql&logoColor=white"></a>
-<img alt="DBT" src ="https://img.shields.io/badge/dbt-FF694B.svg?logo=dbt&logoColor=white"></a>
-<img alt="Airflow" src ="https://img.shields.io/badge/Airflow-017CEE.svg?logo=Apache-Airflow&logoColor=white">
-<img alt="Github" src ="https://img.shields.io/badge/GitHub-181717.svg?logo=GitHub&logoColor=white">
-<img alt="Docker" src ="https://img.shields.io/badge/Docker-2496ED.svg?logo=Docker&logoColor=white">
-<img alt="Metabase" src ="https://img.shields.io/badge/Metabase-509EE3.svg?logo=Metabase&logoColor=white">
-<img alt ="Discord" src ="https://img.shields.io/badge/Discord-5865F2.svg?logo=Discord&logoColor=white">
-
-# 🚀 ELT Process
-
-# 📍 ERD
-
-# 🏃 Run Locally
-
-Clone the project
+Run function up in `docker.sh` file to run both docker compose Airbyte and Airflow
 ```
-git clone https://github.com/CharisChakim/Membership-Optimization-and-Business-Performance-Analysis-of-XYZ-Firm.git
+./docker.sh up
 ```
 
-Run docker compose
+Then you can access Airbyte at `localhost:8000` and Airflow at `localhost:8080`
+
+In Airbyte, define 2 Sources, both are from File (CSV and JSON) and 1 Destination (Postgres). Then create 2 Connections from each source to Postgres.
+
+TIPS:
+- fill URL to Local Filesystem with `/local/<filename>`
+- if there's a problem to read json file, add Reader Options field while define the source with `{"encoding":"utf-8-sig"}`
+
+![from-csv](images/from-csv.png)
+![from-json](images/from-json.png)
+![connectins](images/connections.png)
+
+Copy and paste each id connections into `membership_conn_id` and `log_conn_id` in [dag_sync_airbyte.py](dags/dag_sync_airbyte.py).
+
+![id-csv](images/id-csv.png)
+![id-json](images/id-json.png)
+
+In Airflow, set 2 connections, `call-airbyte` and `pg_conn`. Configure it with settings similar to those in the existing configuration in [env](airbyte/.env) and [docker-compose.yaml](docker-compose.yaml).
+
+After that, the rest steps are the same with the main branch. You can run/trigger the Extract_Load_DAG first.
+
+![sync](images/sync.png)
+![dbeaver](images/dbeaver.png)
+
+Before run dag_dbt, do Data Cleaning for each table with SQL in DBeaver to handle duplicate data, missing data, incorrect data type, inconsistent data, etc. You can see how to do the query in these files: [membership](cleaning_data_membership.sql), [log](cleaning_data_membership_log.sql) and [transaction](cleaning_data_transaction.sql)
+
+Next, you can access Metabase at localhost:3000. Configure the connection to the PostgreSQL data warehouse. Unleash your imagination and creativity to visualize data using Metabase.
+
+Run function down in `docker.sh` file to stop and remove all containers and volumes
 ```
-docker compose up -d
+./docker.sh down
 ```
-
-You can access airflow at `localhost:8080`
-
-After logging in, you can set the PostgreSQL connection in the admin tab and name it as 'pg_conn.' Configure it with settings similar to those in the existing configuration in [docker-compose.yaml](https://github.com/CharisChakim/Membership-Optimization-and-Business-Performance-Analysis-of-XYZ-Firm/blob/main/docker-compose.yaml)
-
-You can run/trigger the Extract_Load_DAG first then dag_dbt after configure it well.
-
-Next, you can access Metabase at localhost:3000. Configure the connection to the PostgreSQL data warehouse.
-Unleash your imagination and creativity to visualize data using Metabase.
-
-
-# 💻 Visualization Sample
-
-# 🧔 Author
-
-- Charis Chakim [![Github Badge](https://img.shields.io/badge/Github-black?logo=github)](https://github.com/CharisChakim)
-
-- Muhammad Rifa [![Github Badge](https://img.shields.io/badge/Github-black?logo=github)](https://github.com/rifa8)
