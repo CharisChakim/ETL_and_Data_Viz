@@ -25,7 +25,7 @@ TIPS:
 ![from-json](images/from-json.png)
 ![connectins](images/connections.png)
 
-Copy and paste each id connection into `membership_conn_id` and `log_conn_id` in [dag_sync_airbyte.py](dags/dag_sync_airbyte.py).
+Copy and paste each connection ID from the address bar into `membership_conn_id` and `log_conn_id` in [dag_sync_airbyte.py](dags/dag_sync_airbyte.py) line 10 and 11.
 
 ![id-csv](images/id-csv.png)
 ![id-json](images/id-json.png)
