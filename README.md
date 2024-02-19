@@ -14,6 +14,14 @@ Run the `up` function in `docker.sh` file to run both the Airbyte and Airflow do
 ```
 ./docker.sh up
 ```
+If you can't execute the docker.sh file, run the following command to add execute permission
+```
+chmod +x docker.sh
+```
+or
+```
+sudo chmod +x docker.sh
+```
 
 After doing that, you can access Airbyte at `localhost:8000` and Airflow at `localhost:8080`. In Airbyte, define 2 Sources, both from Files (CSV and JSON), and 1 Destination (Postgres). Then create 2 Connections from each source to Postgres.
 
