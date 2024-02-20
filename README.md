@@ -26,6 +26,9 @@ PT. XYZ specializes in providing video animation consultation services to its pr
 <img alt ="Airbyte" src ="https://img.shields.io/badge/Airbyte-5865F2.svg?logo=Airbyte&logoColor=white">
 
 # 🚀 ELT Process
+
+**>>>If you want to use airbyte to ingest data, you can use [airbyte branch](https://github.com/CharisChakim/Membership-Optimization-and-Business-Performance-Analysis-of-XYZ-Firm/tree/airbyte)**
+
 ![alt text](images/image.png)
 
 In the data cleaning stage, you can follow step by step in cleaning_data SQL file or copy it into PostgreSQL and run it.
@@ -76,7 +79,7 @@ In the data cleaning stage, you can follow step by step in cleaning_data SQL fil
 
 # 🏃 Run Locally
 
-**If you want to use airbyte to ingest data, use [airbyte branch](https://github.com/CharisChakim/Membership-Optimization-and-Business-Performance-Analysis-of-XYZ-Firm/tree/airbyte)**
+**>>>Clone on airbyte branch if you want to ingesting data with airbyte [airbyte branch](https://github.com/CharisChakim/Membership-Optimization-and-Business-Performance-Analysis-of-XYZ-Firm/tree/airbyte)**
 
 Clone the project
 ```
