@@ -28,6 +28,10 @@ PT. XYZ specializes in providing video animation consultation services to its pr
 # 🚀 ELT Process
 ![alt text](images/image.png)
 
+In the data cleaning stage, you can follow step by step in cleaning_data SQL file or copy it into PostgreSQL and run it.
+
+![alt text](images/image-8.png)
+
 # 📍 Analysis Result
 
 1. Ensure accurate tracking of PT. XYZ's membership growth and historical data annually from 2019 to 2022.
