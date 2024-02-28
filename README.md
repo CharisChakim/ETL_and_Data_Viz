@@ -79,7 +79,7 @@ In the data cleaning stage, you can follow step by step in cleaning_data SQL fil
 
 # 🏃 Run Locally
 
-**>>>Clone on airbyte branch if you want to ingesting data with airbyte [airbyte branch](https://github.com/CharisChakim/Membership-Optimization-and-Business-Performance-Analysis-of-XYZ-Firm/tree/airbyte)**
+**>>>Clone on airbyte branch if you want to ingesting data using airbyte [airbyte branch](https://github.com/CharisChakim/Membership-Optimization-and-Business-Performance-Analysis-of-XYZ-Firm/tree/airbyte)**
 
 Clone the project
 ```
